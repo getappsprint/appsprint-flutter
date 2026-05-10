@@ -42,4 +42,5 @@ android {
 dependencies {
     implementation(name: 'appsprint-sdk', ext: 'aar')
     implementation "androidx.lifecycle:lifecycle-process:2.8.7"
+    implementation "com.google.android.gms:play-services-ads-identifier:18.0.1"
 }

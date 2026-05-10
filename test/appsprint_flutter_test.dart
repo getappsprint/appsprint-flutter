@@ -15,7 +15,11 @@ void main() {
       ..clear()
       ..addAll({
         'sendTestEvent': {'success': true, 'message': 'ok'},
-        'getDeviceInfo': {'deviceModel': 'iPhone15,2', 'locale': 'en-US'},
+        'getDeviceInfo': {
+          'deviceModel': 'iPhone15,2',
+          'locale': 'en-US',
+          'gaid': '38400000-8cf0-11bd-b23e-10b96e40000d',
+        },
       });
 
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -102,6 +106,7 @@ void main() {
     expect(appSprintId, 'app_123');
     expect(deviceInfo.deviceModel, 'iPhone15,2');
     expect(deviceInfo.locale, 'en-US');
+    expect(deviceInfo.gaid, '38400000-8cf0-11bd-b23e-10b96e40000d');
   });
 
   test('native utility API surface matches documented wrapper methods', () async {

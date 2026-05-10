@@ -46,6 +46,12 @@ Log levels:
 
 `0 = debug`, `1 = info`, `2 = warn`, `3 = error`
 
+## Android permissions and privacy
+
+The Android package declares `android.permission.INTERNET` and `com.google.android.gms.permission.AD_ID`. The native Android SDK reads the Google Advertising ID during install registration, omits it when Limit Ad Tracking is enabled, and never sends the all-zero advertising ID.
+
+If you publish an Android app with this SDK, include advertising ID collection in your Play Console Data safety answers and privacy policy.
+
 ## Sending events
 
 ```dart

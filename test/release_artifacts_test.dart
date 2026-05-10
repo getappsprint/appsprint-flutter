@@ -14,4 +14,11 @@ void main() {
       expect(File(relativePath).existsSync(), isTrue, reason: '$relativePath should exist');
     }
   });
+
+  test('android permissions are packaged for consumers', () {
+    final manifest = File('android/src/main/AndroidManifest.xml').readAsStringSync();
+
+    expect(manifest, contains('android.permission.INTERNET'));
+    expect(manifest, contains('com.google.android.gms.permission.AD_ID'));
+  });
 }
