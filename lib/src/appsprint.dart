@@ -6,7 +6,7 @@ class AppSprint {
 
   static final AppSprint instance = AppSprint._();
 
-  Future<void> configure(AppSprintConfig config) {
+  Future<bool> configure(AppSprintConfig config) {
     if (config.apiKey.trim().isEmpty) {
       throw ArgumentError.value(
         config.apiKey,
@@ -25,11 +25,11 @@ class AppSprint {
     });
   }
 
-  Future<void> sendEvent(AppSprintEventType eventType, {String? name, Map<String, Object?>? params}) {
+  Future<bool> sendEvent(AppSprintEventType eventType, {String? name, Map<String, Object?>? params}) {
     return AppSprintNative.sendEvent({
       'eventType': appSprintEventTypeValues[eventType],
       'name': name,
-      'revenue': params?['revenue'],
+      'revenue': params?['revenue'] ?? params?['price'],
       'currency': params?['currency'],
       'parameters': params,
     });
@@ -49,7 +49,7 @@ class AppSprint {
 
   Future<void> setCustomerUserId(String userId) => AppSprintNative.setCustomerUserId(userId);
 
-  Future<void> enableAppleAdsAttribution() => AppSprintNative.enableAppleAdsAttribution();
+  Future<bool> enableAppleAdsAttribution() => AppSprintNative.enableAppleAdsAttribution();
 
   Future<String?> getAppSprintId() => AppSprintNative.getAppSprintId();
 
@@ -58,6 +58,8 @@ class AppSprint {
     if (raw == null) return null;
     return AttributionResult.fromJson(raw);
   }
+
+  Future<Map<String, String>> getAttributionParams() => AppSprintNative.getAttributionParams();
 
   Future<bool> isInitialized() => AppSprintNative.isInitialized();
 

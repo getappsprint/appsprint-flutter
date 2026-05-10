@@ -14,7 +14,15 @@ void main() {
     responseMap
       ..clear()
       ..addAll({
+        'configure': true,
+        'sendEvent': true,
+        'enableAppleAdsAttribution': true,
         'sendTestEvent': {'success': true, 'message': 'ok'},
+        'getAttributionParams': {
+          'appsprintId': 'app_123',
+          'appstackId': 'app_123',
+          'gclid': 'gclid_123',
+        },
         'getDeviceInfo': {
           'deviceModel': 'iPhone15,2',
           'locale': 'en-US',
@@ -35,10 +43,11 @@ void main() {
   });
 
   test('configure delegates to native channel', () async {
-    await AppSprint.instance.configure(
+    final configured = await AppSprint.instance.configure(
       const AppSprintConfig(apiKey: 'test-key', isDebug: true),
     );
 
+    expect(configured, true);
     expect(calls.single.method, 'configure');
     expect(calls.single.arguments, {
       'apiKey': 'test-key',
@@ -66,12 +75,13 @@ void main() {
   });
 
   test('sendEvent delegates mapped event type and params', () async {
-    await AppSprint.instance.sendEvent(
+    final sent = await AppSprint.instance.sendEvent(
       AppSprintEventType.purchase,
       name: 'checkout',
       params: {'revenue': 4.99, 'currency': 'USD', 'source': 'test'},
     );
 
+    expect(sent, true);
     expect(calls.single.method, 'sendEvent');
     expect(calls.single.arguments, {
       'eventType': 'purchase',
@@ -79,6 +89,23 @@ void main() {
       'revenue': 4.99,
       'currency': 'USD',
       'parameters': {'revenue': 4.99, 'currency': 'USD', 'source': 'test'},
+    });
+  });
+
+  test('sendEvent accepts price as revenue fallback', () async {
+    await AppSprint.instance.sendEvent(
+      AppSprintEventType.purchase,
+      name: 'checkout',
+      params: {'price': 5, 'currency': 'EUR'},
+    );
+
+    expect(calls.single.method, 'sendEvent');
+    expect(calls.single.arguments, {
+      'eventType': 'purchase',
+      'name': 'checkout',
+      'revenue': 5,
+      'currency': 'EUR',
+      'parameters': {'price': 5, 'currency': 'EUR'},
     });
   });
 
@@ -94,6 +121,7 @@ void main() {
 
     final testResult = await AppSprint.instance.sendTestEvent();
     final attribution = await AppSprint.instance.getAttribution();
+    final attributionParams = await AppSprint.instance.getAttributionParams();
     final appSprintId = await AppSprint.instance.getAppSprintId();
     final deviceInfo = await AppSprintNative.getDeviceInfo();
 
@@ -103,6 +131,7 @@ void main() {
     expect(attribution?.source, 'tracking_link');
     expect(attribution?.matchType, 'ip_user_agent');
     expect(attribution?.link?['name'], 'spring');
+    expect(attributionParams['gclid'], 'gclid_123');
     expect(appSprintId, 'app_123');
     expect(deviceInfo.deviceModel, 'iPhone15,2');
     expect(deviceInfo.locale, 'en-US');
@@ -112,11 +141,13 @@ void main() {
   test('native utility API surface matches documented wrapper methods', () async {
     await AppSprintNative.getAdServicesToken();
     await AppSprintNative.requestTrackingAuthorization();
+    await AppSprint.instance.enableAppleAdsAttribution();
     await AppSprint.instance.destroy();
 
     expect(calls.map((call) => call.method), containsAll(<String>[
       'getAdServicesToken',
       'requestTrackingAuthorization',
+      'enableAppleAdsAttribution',
       'destroy',
     ]));
   });

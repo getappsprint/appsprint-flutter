@@ -21,4 +21,11 @@ void main() {
     expect(manifest, contains('android.permission.INTERNET'));
     expect(manifest, contains('com.google.android.gms.permission.AD_ID'));
   });
+
+  test('android wrapper declares local AAR runtime dependencies', () {
+    final gradle = File('android/build.gradle').readAsStringSync();
+
+    expect(gradle, contains('play-services-ads-identifier:18.0.1'));
+    expect(gradle, contains('installreferrer:installreferrer:2.2'));
+  });
 }

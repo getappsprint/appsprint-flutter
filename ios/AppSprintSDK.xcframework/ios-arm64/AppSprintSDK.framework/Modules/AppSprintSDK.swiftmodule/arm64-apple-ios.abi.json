@@ -416,23 +416,62 @@
           },
           {
             "kind": "Function",
-            "name": "enableAppleAdsAttribution",
-            "printedName": "enableAppleAdsAttribution()",
+            "name": "getAttributionParams",
+            "printedName": "getAttributionParams()",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
               }
             ],
             "declKind": "Func",
-            "usr": "s:12AppSprintSDK0aB0C25enableAppleAdsAttributionyyF",
-            "mangledName": "$s12AppSprintSDK0aB0C25enableAppleAdsAttributionyyF",
+            "usr": "s:12AppSprintSDK0aB0C20getAttributionParamsSDyS2SGyF",
+            "mangledName": "$s12AppSprintSDK0aB0C20getAttributionParamsSDyS2SGyF",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "Custom",
               "Final",
               "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "enableAppleAdsAttribution",
+            "printedName": "enableAppleAdsAttribution()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12AppSprintSDK0aB0C25enableAppleAdsAttributionSbyF",
+            "mangledName": "$s12AppSprintSDK0aB0C25enableAppleAdsAttributionSbyF",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "Custom",
+              "Final",
+              "AccessControl",
+              "DiscardableResult"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -4851,9 +4890,97 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "attributionParams",
+            "printedName": "attributionParams",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK15InstallResponseV17attributionParamsSDyS2SGSgvp",
+            "mangledName": "$s12AppSprintSDK15InstallResponseV17attributionParamsSDyS2SGSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK15InstallResponseV17attributionParamsSDyS2SGSgvg",
+                "mangledName": "$s12AppSprintSDK15InstallResponseV17attributionParamsSDyS2SGSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(appsprintId:installId:attribution:)",
+            "printedName": "init(appsprintId:installId:attribution:attributionParams:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -4887,11 +5014,40 @@
                 "name": "AttributionResult",
                 "printedName": "AppSprintSDK.AttributionResult",
                 "usr": "s:12AppSprintSDK17AttributionResultV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12AppSprintSDK15InstallResponseV11appsprintId07installG011attributionACSS_SSSgAA17AttributionResultVtcfc",
-            "mangledName": "$s12AppSprintSDK15InstallResponseV11appsprintId07installG011attributionACSS_SSSgAA17AttributionResultVtcfc",
+            "usr": "s:12AppSprintSDK15InstallResponseV11appsprintId07installG011attribution0I6ParamsACSS_SSSgAA17AttributionResultVSDyS2SGSgtcfc",
+            "mangledName": "$s12AppSprintSDK15InstallResponseV11appsprintId07installG011attribution0I6ParamsACSS_SSSgAA17AttributionResultVSDyS2SGSgtcfc",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "AccessControl"
@@ -6555,42 +6711,56 @@
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
-      "offset": 245,
+      "offset": 251,
+      "length": 31,
+      "value": "\"@appsprint:attribution_params\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "kind": "StringLiteral",
+      "offset": 316,
       "length": 21,
       "value": "\"@appsprint:disabled\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
-      "offset": 297,
+      "offset": 368,
       "length": 22,
       "value": "\"@appsprint:idfa_sent\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
-      "offset": 359,
+      "offset": 430,
       "length": 31,
       "value": "\"@appsprint:install_registered\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
-      "offset": 427,
+      "offset": 498,
       "length": 29,
       "value": "\"@appsprint:customer_user_id\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "kind": "Dictionary",
+      "offset": 709,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "BooleanLiteral",
-      "offset": 614,
+      "offset": 743,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "BooleanLiteral",
-      "offset": 650,
+      "offset": 779,
       "length": 5,
       "value": "false"
     },

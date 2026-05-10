@@ -84,7 +84,7 @@ Supported `eventType` values:
 Notes:
 
 - Use `eventType: AppSprintEventType.custom` together with the optional `name` argument for custom event names.
-- Revenue fields are accepted through `params['revenue']` and `params['currency']`.
+- Revenue fields are accepted through `params['revenue']` or `params['price']`, plus `params['currency']`.
 - If an event cannot be delivered, it is queued locally and retried on the next initialization or explicit flush.
 
 ## Public API
@@ -106,7 +106,8 @@ Available methods:
 - `setCustomerUserId(userId)` updates the customer user id locally and remotely when possible.
 - `getAppSprintId()` returns the cached AppSprint install identifier, if available.
 - `getAttribution()` returns the last cached attribution result, if available.
-- `enableAppleAdsAttribution()` re-enables Apple Ads attribution in the current runtime config.
+- `getAttributionParams()` returns the partner-ready attribution payload.
+- `enableAppleAdsAttribution()` re-enables Apple Ads attribution on iOS and returns `false` on Android.
 - `isInitialized()` reports whether `configure()` completed.
 - `destroy()` removes SDK listeners.
 

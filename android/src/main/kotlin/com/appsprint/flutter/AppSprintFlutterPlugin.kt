@@ -4,6 +4,7 @@ import android.content.Context
 import com.appsprint.sdk.AppSprint
 import com.appsprint.sdk.AppSprintConfig
 import com.appsprint.sdk.AppSprintEventType
+import com.appsprint.sdk.AttributionResult
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -43,7 +44,7 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                             customerUserId = call.argument<String>("customerUserId"),
                         )
                         sdk().configure(config)
-                        result.success(null)
+                        result.success(true)
                     } catch (e: Exception) {
                         result.error("CONFIGURE_ERROR", e.message, null)
                     }
@@ -58,12 +59,12 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                         val name = call.argument<String>("name")
                         val params = mutableMapOf<String, Any?>()
                         call.argument<Map<String, Any?>>("parameters")?.forEach { (k, v) -> params[k] = v }
-                        val revenue = call.argument<Double>("revenue")
+                        val revenue = numberArgument(call, "revenue")
                         val currency = call.argument<String>("currency")
                         if (revenue != null && revenue != 0.0) params["revenue"] = revenue
                         if (currency != null) params["currency"] = currency
                         sdk().sendEvent(type, name, if (params.isNotEmpty()) params else null)
-                        result.success(null)
+                        result.success(true)
                     } catch (e: Exception) {
                         result.error("SEND_EVENT_ERROR", e.message, null)
                     }
@@ -93,11 +94,13 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
             }
 
             "clearData" -> {
-                try {
-                    sdk().clearData()
-                    result.success(null)
-                } catch (e: Exception) {
-                    result.error("CLEAR_DATA_ERROR", e.message, null)
+                thread(start = true) {
+                    try {
+                        sdk().clearData()
+                        result.success(null)
+                    } catch (e: Exception) {
+                        result.error("CLEAR_DATA_ERROR", e.message, null)
+                    }
                 }
             }
 
@@ -114,8 +117,13 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
             }
 
             "enableAppleAdsAttribution" -> {
-                sdk().enableAppleAdsAttribution()
-                result.success(null)
+                thread(start = true) {
+                    try {
+                        result.success(sdk().enableAppleAdsAttribution())
+                    } catch (e: Exception) {
+                        result.error("APPLE_ADS_ERROR", e.message, null)
+                    }
+                }
             }
 
             "getAppSprintId" -> result.success(sdk().getAppSprintId())
@@ -126,24 +134,24 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                     result.success(null)
                     return
                 }
-                val map = mutableMapOf<String, Any?>(
-                    "source" to attr.source,
-                    "confidence" to attr.confidence,
-                )
-                attr.campaignName?.let { map["campaignName"] = it }
-                attr.utmSource?.let { map["utmSource"] = it }
-                attr.utmMedium?.let { map["utmMedium"] = it }
-                attr.utmCampaign?.let { map["utmCampaign"] = it }
-                result.success(map)
+                result.success(attributionToMap(attr))
             }
+
+            "getAttributionParams" -> result.success(sdk().getAttributionParams())
 
             "isInitialized" -> result.success(sdk().isInitialized())
 
             "isSdkDisabled" -> result.success(sdk().isSdkDisabled())
 
             "destroy" -> {
-                sdk().destroy()
-                result.success(null)
+                thread(start = true) {
+                    try {
+                        sdk().destroy()
+                        result.success(null)
+                    } catch (e: Exception) {
+                        result.error("DESTROY_ERROR", e.message, null)
+                    }
+                }
             }
 
             // Utility
@@ -169,5 +177,39 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         channel.setMethodCallHandler(null)
+    }
+
+    private fun numberArgument(call: MethodCall, key: String): Double? {
+        val value = call.argument<Any>(key) ?: return null
+        return when (value) {
+            is Number -> value.toDouble()
+            is String -> value.trim().toDoubleOrNull()
+            else -> null
+        }
+    }
+
+    private fun attributionToMap(attr: AttributionResult): Map<String, Any?> {
+        val map = mutableMapOf<String, Any?>(
+            "isAttributed" to attr.isAttributed,
+            "source" to attr.source,
+            "confidence" to attr.confidence,
+        )
+        attr.matchType?.let { map["matchType"] = it }
+        attr.campaignName?.let { map["campaignName"] = it }
+        attr.link?.let { map["link"] = mapOf("id" to it.id, "name" to it.name) }
+        attr.appleAds?.let {
+            map["appleAds"] = mutableMapOf<String, Any?>("campaignId" to it.campaignId).apply {
+                it.adGroupId?.let { value -> put("adGroupId", value) }
+                it.keywordId?.let { value -> put("keywordId", value) }
+                it.countryOrRegion?.let { value -> put("countryOrRegion", value) }
+                it.conversionType?.let { value -> put("conversionType", value) }
+            }
+        }
+        attr.utmSource?.let { map["utmSource"] = it }
+        attr.utmMedium?.let { map["utmMedium"] = it }
+        attr.utmCampaign?.let { map["utmCampaign"] = it }
+        attr.utmContent?.let { map["utmContent"] = it }
+        attr.utmTerm?.let { map["utmTerm"] = it }
+        return map
     }
 }

@@ -54,7 +54,7 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
         }
 
         await AppSprint.shared.configure(sdkConfig)
-        result(nil)
+        result(true)
       }
 
     case "sendEvent":
@@ -68,7 +68,7 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
         let name = args["name"] as? String
         var params: [String: Any]? = args["parameters"] as? [String: Any]
 
-        if let rev = args["revenue"] as? Double {
+        if let rev = Self.numberValue(args["revenue"] ?? args["price"]) {
           if params == nil { params = [:] }
           params?["revenue"] = rev
         }
@@ -78,7 +78,7 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
         }
 
         await AppSprint.shared.sendEvent(type, name: name, params: params)
-        result(nil)
+        result(true)
       }
 
     case "sendTestEvent":
@@ -112,8 +112,7 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
 
     case "enableAppleAdsAttribution":
       Task { @MainActor in
-        AppSprint.shared.enableAppleAdsAttribution()
-        result(nil)
+        result(AppSprint.shared.enableAppleAdsAttribution())
       }
 
     case "getAppSprintId":
@@ -127,15 +126,12 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
           result(nil)
           return
         }
-        var dict: [String: Any] = [
-          "source": attr.source,
-          "confidence": attr.confidence,
-        ]
-        if let c = attr.campaignName { dict["campaignName"] = c }
-        if let s = attr.utmSource { dict["utmSource"] = s }
-        if let m = attr.utmMedium { dict["utmMedium"] = m }
-        if let c = attr.utmCampaign { dict["utmCampaign"] = c }
-        result(dict)
+        result(Self.attributionToDictionary(attr))
+      }
+
+    case "getAttributionParams":
+      Task { @MainActor in
+        result(AppSprint.shared.getAttributionParams())
       }
 
     case "isInitialized":
@@ -185,5 +181,49 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
     default:
       result(FlutterMethodNotImplemented)
     }
+  }
+
+  private static func numberValue(_ value: Any?) -> Double? {
+    switch value {
+    case let double as Double:
+      return double
+    case let float as Float:
+      return Double(float)
+    case let int as Int:
+      return Double(int)
+    case let number as NSNumber:
+      return number.doubleValue
+    case let string as String:
+      return Double(string.trimmingCharacters(in: .whitespacesAndNewlines))
+    default:
+      return nil
+    }
+  }
+
+  private static func attributionToDictionary(_ attr: AttributionResult) -> [String: Any] {
+    var dict: [String: Any] = [
+      "isAttributed": attr.isAttributed,
+      "source": attr.source,
+      "confidence": attr.confidence,
+    ]
+    if let matchType = attr.matchType { dict["matchType"] = matchType }
+    if let campaignName = attr.campaignName { dict["campaignName"] = campaignName }
+    if let link = attr.link {
+      dict["link"] = ["id": link.id, "name": link.name]
+    }
+    if let appleAds = attr.appleAds {
+      var apple: [String: Any] = ["campaignId": appleAds.campaignId]
+      if let adGroupId = appleAds.adGroupId { apple["adGroupId"] = adGroupId }
+      if let keywordId = appleAds.keywordId { apple["keywordId"] = keywordId }
+      if let country = appleAds.countryOrRegion { apple["countryOrRegion"] = country }
+      if let conversion = appleAds.conversionType { apple["conversionType"] = conversion }
+      dict["appleAds"] = apple
+    }
+    if let utmSource = attr.utmSource { dict["utmSource"] = utmSource }
+    if let utmMedium = attr.utmMedium { dict["utmMedium"] = utmMedium }
+    if let utmCampaign = attr.utmCampaign { dict["utmCampaign"] = utmCampaign }
+    if let utmContent = attr.utmContent { dict["utmContent"] = utmContent }
+    if let utmTerm = attr.utmTerm { dict["utmTerm"] = utmTerm }
+    return dict
   }
 }

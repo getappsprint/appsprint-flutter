@@ -9,12 +9,12 @@ class AppSprintNative {
 
   // Core SDK
 
-  static Future<void> configure(Map<String, dynamic> config) {
-    return _channel.invokeMethod<void>('configure', config);
+  static Future<bool> configure(Map<String, dynamic> config) async {
+    return await _channel.invokeMethod<bool>('configure', config) ?? false;
   }
 
-  static Future<void> sendEvent(Map<String, dynamic> args) {
-    return _channel.invokeMethod<void>('sendEvent', args);
+  static Future<bool> sendEvent(Map<String, dynamic> args) async {
+    return await _channel.invokeMethod<bool>('sendEvent', args) ?? false;
   }
 
   static Future<Map<dynamic, dynamic>?> sendTestEvent() {
@@ -33,8 +33,8 @@ class AppSprintNative {
     return _channel.invokeMethod<void>('setCustomerUserId', {'userId': userId});
   }
 
-  static Future<void> enableAppleAdsAttribution() {
-    return _channel.invokeMethod<void>('enableAppleAdsAttribution');
+  static Future<bool> enableAppleAdsAttribution() async {
+    return await _channel.invokeMethod<bool>('enableAppleAdsAttribution') ?? false;
   }
 
   static Future<String?> getAppSprintId() {
@@ -43,6 +43,13 @@ class AppSprintNative {
 
   static Future<Map<dynamic, dynamic>?> getAttribution() {
     return _channel.invokeMethod<Map<dynamic, dynamic>>('getAttribution');
+  }
+
+  static Future<Map<String, String>> getAttributionParams() async {
+    final result = await _channel.invokeMethod<Map<dynamic, dynamic>>('getAttributionParams');
+    return (result ?? const <dynamic, dynamic>{}).map(
+      (key, value) => MapEntry(key.toString(), value.toString()),
+    );
   }
 
   static Future<bool> isInitialized() async {
