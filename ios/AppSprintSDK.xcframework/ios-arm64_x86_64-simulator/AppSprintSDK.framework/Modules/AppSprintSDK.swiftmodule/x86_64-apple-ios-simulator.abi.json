@@ -1664,13 +1664,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "Hashable",
             "printedName": "Hashable",
             "usr": "s:SH",
@@ -1725,6 +1718,13 @@
             "printedName": "SendableMetatype",
             "usr": "s:s16SendableMetatypeP",
             "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           }
         ]
       },
@@ -1733,6 +1733,43 @@
         "name": "AppSprintEventType",
         "printedName": "AppSprintEventType",
         "children": [
+          {
+            "kind": "Var",
+            "name": "sessionStart",
+            "printedName": "sessionStart",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintEventType.Type) -> AppSprintSDK.AppSprintEventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintEventType",
+                    "printedName": "AppSprintSDK.AppSprintEventType",
+                    "usr": "s:12AppSprintSDK0aB9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintEventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintEventType",
+                        "printedName": "AppSprintSDK.AppSprintEventType",
+                        "usr": "s:12AppSprintSDK0aB9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9EventTypeO12sessionStartyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9EventTypeO12sessionStartyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
           {
             "kind": "Var",
             "name": "login",
@@ -2520,13 +2557,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "Hashable",
             "printedName": "Hashable",
             "usr": "s:SH",
@@ -2611,18 +2641,206 @@
             "printedName": "SendableMetatype",
             "usr": "s:s16SendableMetatypeP",
             "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           }
         ]
       },
       {
         "kind": "TypeDecl",
-        "name": "AttributionResult",
-        "printedName": "AttributionResult",
+        "name": "AppSprintAttStatus",
+        "printedName": "AppSprintAttStatus",
         "children": [
           {
             "kind": "Var",
-            "name": "source",
-            "printedName": "source",
+            "name": "notDetermined",
+            "printedName": "notDetermined",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintAttStatus.Type) -> AppSprintSDK.AppSprintAttStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintAttStatus",
+                        "printedName": "AppSprintSDK.AppSprintAttStatus",
+                        "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9AttStatusO13notDeterminedyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9AttStatusO13notDeterminedyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "restricted",
+            "printedName": "restricted",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintAttStatus.Type) -> AppSprintSDK.AppSprintAttStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintAttStatus",
+                        "printedName": "AppSprintSDK.AppSprintAttStatus",
+                        "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9AttStatusO10restrictedyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9AttStatusO10restrictedyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "denied",
+            "printedName": "denied",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintAttStatus.Type) -> AppSprintSDK.AppSprintAttStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintAttStatus",
+                        "printedName": "AppSprintSDK.AppSprintAttStatus",
+                        "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9AttStatusO6deniedyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9AttStatusO6deniedyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "authorized",
+            "printedName": "authorized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintAttStatus.Type) -> AppSprintSDK.AppSprintAttStatus",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintAttStatus",
+                        "printedName": "AppSprintSDK.AppSprintAttStatus",
+                        "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9AttStatusO10authorizedyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9AttStatusO10authorizedyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AppSprintAttStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12AppSprintSDK0aB9AttStatusO8rawValueACSgSS_tcfc",
+            "mangledName": "$s12AppSprintSDK0aB9AttStatusO8rawValueACSgSS_tcfc",
+            "moduleName": "AppSprintSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2632,8 +2850,142 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12AppSprintSDK17AttributionResultV6sourceSSvp",
-            "mangledName": "$s12AppSprintSDK17AttributionResultV6sourceSSvp",
+            "usr": "s:12AppSprintSDK0aB9AttStatusO8rawValueSSvp",
+            "mangledName": "$s12AppSprintSDK0aB9AttStatusO8rawValueSSvp",
+            "moduleName": "AppSprintSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK0aB9AttStatusO8rawValueSSvg",
+                "mangledName": "$s12AppSprintSDK0aB9AttStatusO8rawValueSSvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:12AppSprintSDK0aB9AttStatusO",
+        "mangledName": "$s12AppSprintSDK0aB9AttStatusO",
+        "moduleName": "AppSprintSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AttributionLink",
+        "printedName": "AttributionLink",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "id",
+            "printedName": "id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK15AttributionLinkV2idSSvp",
+            "mangledName": "$s12AppSprintSDK15AttributionLinkV2idSSvp",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "HasStorage",
@@ -2655,8 +3007,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12AppSprintSDK17AttributionResultV6sourceSSvg",
-                "mangledName": "$s12AppSprintSDK17AttributionResultV6sourceSSvg",
+                "usr": "s:12AppSprintSDK15AttributionLinkV2idSSvg",
+                "mangledName": "$s12AppSprintSDK15AttributionLinkV2idSSvg",
                 "moduleName": "AppSprintSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -2665,19 +3017,19 @@
           },
           {
             "kind": "Var",
-            "name": "confidence",
-            "printedName": "confidence",
+            "name": "name",
+            "printedName": "name",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
-            "usr": "s:12AppSprintSDK17AttributionResultV10confidenceSdvp",
-            "mangledName": "$s12AppSprintSDK17AttributionResultV10confidenceSdvp",
+            "usr": "s:12AppSprintSDK15AttributionLinkV4nameSSvp",
+            "mangledName": "$s12AppSprintSDK15AttributionLinkV4nameSSvp",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "HasStorage",
@@ -2693,14 +3045,206 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Double",
-                    "printedName": "Swift.Double",
-                    "usr": "s:Sd"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12AppSprintSDK17AttributionResultV10confidenceSdvg",
-                "mangledName": "$s12AppSprintSDK17AttributionResultV10confidenceSdvg",
+                "usr": "s:12AppSprintSDK15AttributionLinkV4nameSSvg",
+                "mangledName": "$s12AppSprintSDK15AttributionLinkV4nameSSvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AttributionLink",
+                "printedName": "AppSprintSDK.AttributionLink",
+                "usr": "s:12AppSprintSDK15AttributionLinkV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12AppSprintSDK15AttributionLinkV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s12AppSprintSDK15AttributionLinkV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "AppSprintSDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12AppSprintSDK15AttributionLinkV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s12AppSprintSDK15AttributionLinkV6encode2toys7Encoder_p_tKF",
+            "moduleName": "AppSprintSDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AttributionLink",
+                "printedName": "AppSprintSDK.AttributionLink",
+                "usr": "s:12AppSprintSDK15AttributionLinkV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AttributionLink",
+                "printedName": "AppSprintSDK.AttributionLink",
+                "usr": "s:12AppSprintSDK15AttributionLinkV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12AppSprintSDK15AttributionLinkV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s12AppSprintSDK15AttributionLinkV2eeoiySbAC_ACtFZ",
+            "moduleName": "AppSprintSDK",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12AppSprintSDK15AttributionLinkV",
+        "mangledName": "$s12AppSprintSDK15AttributionLinkV",
+        "moduleName": "AppSprintSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppleAdsAttribution",
+        "printedName": "AppleAdsAttribution",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "campaignId",
+            "printedName": "campaignId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV10campaignIdSSvp",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV10campaignIdSSvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV10campaignIdSSvg",
+                "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV10campaignIdSSvg",
                 "moduleName": "AppSprintSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -2709,8 +3253,8 @@
           },
           {
             "kind": "Var",
-            "name": "campaignName",
-            "printedName": "campaignName",
+            "name": "adGroupId",
+            "printedName": "adGroupId",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2728,8 +3272,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12AppSprintSDK17AttributionResultV12campaignNameSSSgvp",
-            "mangledName": "$s12AppSprintSDK17AttributionResultV12campaignNameSSSgvp",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV9adGroupIdSSSgvp",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV9adGroupIdSSSgvp",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "HasStorage",
@@ -2759,8 +3303,560 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12AppSprintSDK17AttributionResultV12campaignNameSSSgvg",
-                "mangledName": "$s12AppSprintSDK17AttributionResultV12campaignNameSSSgvg",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV9adGroupIdSSSgvg",
+                "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV9adGroupIdSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "keywordId",
+            "printedName": "keywordId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV9keywordIdSSSgvp",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV9keywordIdSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV9keywordIdSSSgvg",
+                "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV9keywordIdSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "countryOrRegion",
+            "printedName": "countryOrRegion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV15countryOrRegionSSSgvp",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV15countryOrRegionSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV15countryOrRegionSSSgvg",
+                "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV15countryOrRegionSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "conversionType",
+            "printedName": "conversionType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV14conversionTypeSSSgvp",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV14conversionTypeSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV14conversionTypeSSSgvg",
+                "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV14conversionTypeSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppleAdsAttribution",
+                "printedName": "AppSprintSDK.AppleAdsAttribution",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "AppSprintSDK",
+            "implicit": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV6encode2toys7Encoder_p_tKF",
+            "moduleName": "AppSprintSDK",
+            "implicit": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppleAdsAttribution",
+                "printedName": "AppSprintSDK.AppleAdsAttribution",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AppleAdsAttribution",
+                "printedName": "AppSprintSDK.AppleAdsAttribution",
+                "usr": "s:12AppSprintSDK19AppleAdsAttributionV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12AppSprintSDK19AppleAdsAttributionV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV2eeoiySbAC_ACtFZ",
+            "moduleName": "AppSprintSDK",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12AppSprintSDK19AppleAdsAttributionV",
+        "mangledName": "$s12AppSprintSDK19AppleAdsAttributionV",
+        "moduleName": "AppSprintSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AttributionResult",
+        "printedName": "AttributionResult",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isAttributed",
+            "printedName": "isAttributed",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV12isAttributedSbvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV12isAttributedSbvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV12isAttributedSbvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV12isAttributedSbvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "matchType",
+            "printedName": "matchType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV9matchTypeSSSgvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV9matchTypeSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV9matchTypeSSSgvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV9matchTypeSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "link",
+            "printedName": "link",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AttributionLink?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AttributionLink",
+                    "printedName": "AppSprintSDK.AttributionLink",
+                    "usr": "s:12AppSprintSDK15AttributionLinkV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV4linkAA0D4LinkVSgvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV4linkAA0D4LinkVSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AppSprintSDK.AttributionLink?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AttributionLink",
+                        "printedName": "AppSprintSDK.AttributionLink",
+                        "usr": "s:12AppSprintSDK15AttributionLinkV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV4linkAA0D4LinkVSgvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV4linkAA0D4LinkVSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appleAds",
+            "printedName": "appleAds",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AppleAdsAttribution?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppleAdsAttribution",
+                    "printedName": "AppSprintSDK.AppleAdsAttribution",
+                    "usr": "s:12AppSprintSDK19AppleAdsAttributionV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV8appleAdsAA05ApplegD0VSgvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV8appleAdsAA05ApplegD0VSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AppSprintSDK.AppleAdsAttribution?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppleAdsAttribution",
+                        "printedName": "AppSprintSDK.AppleAdsAttribution",
+                        "usr": "s:12AppSprintSDK19AppleAdsAttributionV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV8appleAdsAA05ApplegD0VSgvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV8appleAdsAA05ApplegD0VSgvg",
                 "moduleName": "AppSprintSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -2948,6 +4044,262 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "utmContent",
+            "printedName": "utmContent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV10utmContentSSSgvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV10utmContentSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV10utmContentSSSgvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV10utmContentSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "utmTerm",
+            "printedName": "utmTerm",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV7utmTermSSSgvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV7utmTermSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV7utmTermSSSgvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV7utmTermSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "source",
+            "printedName": "source",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV6sourceSSvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV6sourceSSvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV6sourceSSvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV6sourceSSvg",
+                "moduleName": "AppSprintSDK",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "confidence",
+            "printedName": "confidence",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV10confidenceSdvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV10confidenceSdvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV10confidenceSdvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV10confidenceSdvg",
+                "moduleName": "AppSprintSDK",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "campaignName",
+            "printedName": "campaignName",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK17AttributionResultV12campaignNameSSSgvp",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV12campaignNameSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK17AttributionResultV12campaignNameSSSgvg",
+                "mangledName": "$s12AppSprintSDK17AttributionResultV12campaignNameSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(source:confidence:campaignName:utmSource:utmMedium:utmCampaign:)",
@@ -3034,6 +4386,168 @@
             "declKind": "Constructor",
             "usr": "s:12AppSprintSDK17AttributionResultV6source10confidence12campaignName9utmSource0J6Medium0J8CampaignACSS_SdSSSgA3Jtcfc",
             "mangledName": "$s12AppSprintSDK17AttributionResultV6source10confidence12campaignName9utmSource0J6Medium0J8CampaignACSS_SdSSSgA3Jtcfc",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(isAttributed:source:matchType:link:appleAds:utmSource:utmMedium:utmCampaign:utmContent:utmTerm:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AttributionResult",
+                "printedName": "AppSprintSDK.AttributionResult",
+                "usr": "s:12AppSprintSDK17AttributionResultV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AttributionLink?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AttributionLink",
+                    "printedName": "AppSprintSDK.AttributionLink",
+                    "usr": "s:12AppSprintSDK15AttributionLinkV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AppleAdsAttribution?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppleAdsAttribution",
+                    "printedName": "AppSprintSDK.AppleAdsAttribution",
+                    "usr": "s:12AppSprintSDK19AppleAdsAttributionV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12AppSprintSDK17AttributionResultV12isAttributed6source9matchType4link8appleAds9utmSource0N6Medium0N8Campaign0N7Content0N4TermACSb_SSSgAnA0D4LinkVSgAA05ApplemD0VSgA5Ntcfc",
+            "mangledName": "$s12AppSprintSDK17AttributionResultV12isAttributed6source9matchType4link8appleAds9utmSource0N6Medium0N8Campaign0N7Content0N4TermACSb_SSSgAnA0D4LinkVSgAA05ApplemD0VSgA5Ntcfc",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "AccessControl"
@@ -3141,13 +4655,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -3166,6 +4673,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -3234,6 +4748,66 @@
           },
           {
             "kind": "Var",
+            "name": "installId",
+            "printedName": "installId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK15InstallResponseV9installIdSSSgvp",
+            "mangledName": "$s12AppSprintSDK15InstallResponseV9installIdSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK15InstallResponseV9installIdSSSgvg",
+                "mangledName": "$s12AppSprintSDK15InstallResponseV9installIdSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "attribution",
             "printedName": "attribution",
             "children": [
@@ -3275,6 +4849,54 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(appsprintId:installId:attribution:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InstallResponse",
+                "printedName": "AppSprintSDK.InstallResponse",
+                "usr": "s:12AppSprintSDK15InstallResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AttributionResult",
+                "printedName": "AppSprintSDK.AttributionResult",
+                "usr": "s:12AppSprintSDK17AttributionResultV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12AppSprintSDK15InstallResponseV11appsprintId07installG011attributionACSS_SSSgAA17AttributionResultVtcfc",
+            "mangledName": "$s12AppSprintSDK15InstallResponseV11appsprintId07installG011attributionACSS_SSSgAA17AttributionResultVtcfc",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
           },
           {
             "kind": "Constructor",
@@ -3345,13 +4967,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -3363,6 +4978,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -3556,17 +5178,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -3951,6 +5573,66 @@
           },
           {
             "kind": "Var",
+            "name": "appVersion",
+            "printedName": "appVersion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK10DeviceInfoV10appVersionSSSgvp",
+            "mangledName": "$s12AppSprintSDK10DeviceInfoV10appVersionSSSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK10DeviceInfoV10appVersionSSSgvg",
+                "mangledName": "$s12AppSprintSDK10DeviceInfoV10appVersionSSSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "idfv",
             "printedName": "idfv",
             "children": [
@@ -4130,9 +5812,69 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "attStatus",
+            "printedName": "attStatus",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AppSprintAttStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12AppSprintSDK10DeviceInfoV9attStatusAA0ab3AttG0OSgvp",
+            "mangledName": "$s12AppSprintSDK10DeviceInfoV9attStatusAA0ab3AttG0OSgvp",
+            "moduleName": "AppSprintSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintAttStatus",
+                        "printedName": "AppSprintSDK.AppSprintAttStatus",
+                        "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12AppSprintSDK10DeviceInfoV9attStatusAA0ab3AttG0OSgvg",
+                "mangledName": "$s12AppSprintSDK10DeviceInfoV9attStatusAA0ab3AttG0OSgvg",
+                "moduleName": "AppSprintSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(deviceModel:screenWidth:screenHeight:locale:timezone:osVersion:idfv:idfa:adServicesToken:)",
+            "printedName": "init(deviceModel:screenWidth:screenHeight:locale:timezone:osVersion:appVersion:idfv:idfa:adServicesToken:attStatus:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -4274,11 +6016,41 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "AppSprintSDK.AppSprintAttStatus?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintAttStatus",
+                    "printedName": "AppSprintSDK.AppSprintAttStatus",
+                    "usr": "s:12AppSprintSDK0aB9AttStatusO"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12AppSprintSDK10DeviceInfoV11deviceModel11screenWidth0H6Height6locale8timezone9osVersion4idfv4idfa15adServicesTokenACSSSg_SiSgAn6Mtcfc",
-            "mangledName": "$s12AppSprintSDK10DeviceInfoV11deviceModel11screenWidth0H6Height6locale8timezone9osVersion4idfv4idfa15adServicesTokenACSSSg_SiSgAn6Mtcfc",
+            "usr": "s:12AppSprintSDK10DeviceInfoV11deviceModel11screenWidth0H6Height6locale8timezone9osVersion03appN04idfv4idfa15adServicesToken9attStatusACSSSg_SiSgAp7oA0ab3AttV0OSgtcfc",
+            "mangledName": "$s12AppSprintSDK10DeviceInfoV11deviceModel11screenWidth0H6Height6locale8timezone9osVersion03appN04idfv4idfa15adServicesToken9attStatusACSSSg_SiSgAp7oA0ab3AttV0OSgtcfc",
             "moduleName": "AppSprintSDK",
             "declAttributes": [
               "AccessControl"
@@ -4386,13 +6158,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -4411,6 +6176,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -4609,13 +6381,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -4634,6 +6399,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -4767,186 +6539,235 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
       "offset": 138,
       "length": 15,
       "value": "\"@appsprint:id\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
       "offset": 187,
       "length": 24,
       "value": "\"@appsprint:attribution\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
       "offset": 245,
       "length": 21,
       "value": "\"@appsprint:disabled\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
       "offset": 297,
       "length": 22,
       "value": "\"@appsprint:idfa_sent\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "kind": "StringLiteral",
+      "offset": 359,
+      "length": 31,
+      "value": "\"@appsprint:install_registered\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "kind": "StringLiteral",
+      "offset": 427,
+      "length": 29,
+      "value": "\"@appsprint:customer_user_id\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "BooleanLiteral",
-      "offset": 477,
+      "offset": 614,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "BooleanLiteral",
-      "offset": 513,
+      "offset": 650,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",
       "kind": "StringLiteral",
       "offset": 352,
       "length": 27,
       "value": "\"https:\/\/api.appsprint.app\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 425,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 455,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintNative.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintNative.swift",
       "kind": "StringLiteral",
-      "offset": 325,
+      "offset": 369,
       "length": 15,
       "value": "\"com.appsprint\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintQueueStore.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintQueueStore.swift",
       "kind": "StringLiteral",
       "offset": 80,
       "length": 24,
       "value": "\"@appsprint:event_queue\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintQueueStore.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintQueueStore.swift",
       "kind": "IntegerLiteral",
       "offset": 136,
       "length": 3,
       "value": "100"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "IntegerLiteral",
       "offset": 92,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "IntegerLiteral",
       "offset": 110,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "IntegerLiteral",
       "offset": 128,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "IntegerLiteral",
       "offset": 147,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 259,
+      "offset": 250,
+      "length": 15,
+      "value": "\"session_start\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 299,
       "length": 9,
       "value": "\"sign_up\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 346,
+      "offset": 386,
       "length": 13,
       "value": "\"start_trial\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 381,
+      "offset": 421,
       "length": 13,
       "value": "\"add_to_cart\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 420,
+      "offset": 460,
       "length": 17,
       "value": "\"add_to_wishlist\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 466,
+      "offset": 506,
       "length": 19,
       "value": "\"initiate_checkout\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 509,
+      "offset": 549,
       "length": 14,
       "value": "\"view_content\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 544,
+      "offset": 584,
       "length": 11,
       "value": "\"view_item\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 615,
+      "offset": 655,
       "length": 19,
       "value": "\"tutorial_complete\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 657,
+      "offset": 697,
       "length": 13,
       "value": "\"level_start\""
     },
     {
-      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/repos\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 696,
+      "offset": 736,
       "length": 16,
       "value": "\"level_complete\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 857,
+      "length": 16,
+      "value": "\"not_determined\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 2190,
+      "length": 8,
+      "value": "\"source\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 2410,
+      "length": 12,
+      "value": "\"confidence\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 2457,
+      "length": 14,
+      "value": "\"campaignName\""
     }
   ]
 }

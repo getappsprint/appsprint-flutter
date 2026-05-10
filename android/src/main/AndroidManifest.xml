@@ -1,1 +1,4 @@
-<manifest package="com.appsprint.flutter" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.appsprint.flutter">
+  <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

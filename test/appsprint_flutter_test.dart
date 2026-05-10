@@ -80,9 +80,11 @@ void main() {
 
   test('public API returns typed values', () async {
     responseMap['getAttribution'] = {
-      'source': 'apple_ads',
-      'confidence': 0.98,
-      'campaignName': 'spring',
+      'isAttributed': true,
+      'source': 'tracking_link',
+      'matchType': 'ip_user_agent',
+      'link': {'id': 'link_123', 'name': 'spring'},
+      'utmSource': 'newsletter',
     };
     responseMap['getAppSprintId'] = 'app_123';
 
@@ -93,9 +95,10 @@ void main() {
 
     expect(testResult.success, true);
     expect(testResult.message, 'ok');
-    expect(attribution?.source, 'apple_ads');
-    expect(attribution?.confidence, 0.98);
-    expect(attribution?.campaignName, 'spring');
+    expect(attribution?.isAttributed, true);
+    expect(attribution?.source, 'tracking_link');
+    expect(attribution?.matchType, 'ip_user_agent');
+    expect(attribution?.link?['name'], 'spring');
     expect(appSprintId, 'app_123');
     expect(deviceInfo.deviceModel, 'iPhone15,2');
     expect(deviceInfo.locale, 'en-US');

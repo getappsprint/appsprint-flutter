@@ -1,4 +1,5 @@
 enum AppSprintEventType {
+  sessionStart,
   login,
   signUp,
   register,
@@ -19,6 +20,7 @@ enum AppSprintEventType {
 }
 
 const Map<AppSprintEventType, String> appSprintEventTypeValues = {
+  AppSprintEventType.sessionStart: 'session_start',
   AppSprintEventType.login: 'login',
   AppSprintEventType.signUp: 'sign_up',
   AppSprintEventType.register: 'register',
@@ -57,27 +59,67 @@ class AppSprintConfig {
 }
 
 class AttributionResult {
-  const AttributionResult({required this.source, required this.confidence, this.campaignName, this.utmSource, this.utmMedium, this.utmCampaign});
+  const AttributionResult({
+    required this.isAttributed,
+    this.source,
+    this.matchType,
+    this.link,
+    this.appleAds,
+    this.confidence,
+    this.campaignName,
+    this.utmSource,
+    this.utmMedium,
+    this.utmCampaign,
+    this.utmContent,
+    this.utmTerm,
+  });
+
   factory AttributionResult.fromJson(Map<dynamic, dynamic> json) {
+    final isAttributed = json['isAttributed'] as bool? ?? json['source'] != 'organic';
     return AttributionResult(
-      source: json['source'] as String,
-      confidence: (json['confidence'] as num).toDouble(),
+      isAttributed: isAttributed,
+      source: json['source'] as String? ?? (isAttributed ? null : 'organic'),
+      matchType: json['matchType'] as String?,
+      link: (json['link'] as Map?)?.cast<dynamic, dynamic>(),
+      appleAds: (json['appleAds'] as Map?)?.cast<dynamic, dynamic>(),
+      confidence: (json['confidence'] as num?)?.toDouble(),
       campaignName: json['campaignName'] as String?,
       utmSource: json['utmSource'] as String?,
       utmMedium: json['utmMedium'] as String?,
       utmCampaign: json['utmCampaign'] as String?,
+      utmContent: json['utmContent'] as String?,
+      utmTerm: json['utmTerm'] as String?,
     );
   }
-  final String source;
-  final double confidence;
+
+  final bool isAttributed;
+  final String? source;
+  final String? matchType;
+  final Map<dynamic, dynamic>? link;
+  final Map<dynamic, dynamic>? appleAds;
+  final double? confidence;
   final String? campaignName;
   final String? utmSource;
   final String? utmMedium;
   final String? utmCampaign;
+  final String? utmContent;
+  final String? utmTerm;
 }
 
 class DeviceInfo {
-  const DeviceInfo({this.deviceModel, this.screenWidth, this.screenHeight, this.locale, this.timezone, this.osVersion, this.idfv, this.idfa, this.adServicesToken});
+  const DeviceInfo({
+    this.deviceModel,
+    this.screenWidth,
+    this.screenHeight,
+    this.locale,
+    this.timezone,
+    this.osVersion,
+    this.appVersion,
+    this.idfv,
+    this.idfa,
+    this.adServicesToken,
+    this.attStatus,
+  });
   factory DeviceInfo.fromJson(Map<dynamic, dynamic> json) {
     return DeviceInfo(
       deviceModel: json['deviceModel'] as String?,
@@ -86,9 +128,11 @@ class DeviceInfo {
       locale: json['locale'] as String?,
       timezone: json['timezone'] as String?,
       osVersion: json['osVersion'] as String?,
+      appVersion: json['appVersion'] as String?,
       idfv: json['idfv'] as String?,
       idfa: json['idfa'] as String?,
       adServicesToken: json['adServicesToken'] as String?,
+      attStatus: json['attStatus'] as String?,
     );
   }
   final String? deviceModel;
@@ -97,9 +141,11 @@ class DeviceInfo {
   final String? locale;
   final String? timezone;
   final String? osVersion;
+  final String? appVersion;
   final String? idfv;
   final String? idfa;
   final String? adServicesToken;
+  final String? attStatus;
 }
 
 class TestEventResult {
