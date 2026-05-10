@@ -84,7 +84,6 @@ The SDK doesn't talk to the API directly — it delegates to the native plugins 
 ## CI/CD
 
 - `ci.yml` — Analyze + test + dry-run publish on push to main and PRs
-- `discord-notify.yml` — Post commit info to Discord
 - `release.yml` — Analyze, test, publish to pub.dev on `v*` tags (manual — no OIDC support)
 
 ### pub.dev Publishing
