@@ -31,8 +31,17 @@ class AppSprint {
       'name': name,
       'revenue': params?['revenue'] ?? params?['price'],
       'currency': params?['currency'],
-      'parameters': params,
+      'parameters': _eventParametersWithoutHoistedFields(params),
     });
+  }
+
+  static Map<String, Object?>? _eventParametersWithoutHoistedFields(Map<String, Object?>? params) {
+    if (params == null) return null;
+    final parameters = Map<String, Object?>.of(params)
+      ..remove('revenue')
+      ..remove('price')
+      ..remove('currency');
+    return parameters.isEmpty ? null : parameters;
   }
 
   Future<TestEventResult> sendTestEvent() async {

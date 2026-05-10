@@ -79,7 +79,7 @@ await AppSprint.instance.sendEvent(
 
 Supported `eventType` values:
 
-`login` | `sign_up` | `register` | `purchase` | `subscribe` | `start_trial` | `add_to_cart` | `add_to_wishlist` | `initiate_checkout` | `view_content` | `view_item` | `search` | `share` | `tutorial_complete` | `level_start` | `level_complete` | `custom`
+`login` | `sign_up` | `register` | `purchase` | `subscribe` | `start_trial` | `add_payment_info` | `add_to_cart` | `add_to_wishlist` | `initiate_checkout` | `view_content` | `view_item` | `search` | `share` | `tutorial_complete` | `achieve_level` | `level_start` | `level_complete` | `custom`
 
 Notes:
 

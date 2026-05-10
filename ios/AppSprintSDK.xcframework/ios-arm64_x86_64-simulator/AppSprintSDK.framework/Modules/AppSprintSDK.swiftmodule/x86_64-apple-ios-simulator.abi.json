@@ -2033,6 +2033,43 @@
           },
           {
             "kind": "Var",
+            "name": "addPaymentInfo",
+            "printedName": "addPaymentInfo",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintEventType.Type) -> AppSprintSDK.AppSprintEventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintEventType",
+                    "printedName": "AppSprintSDK.AppSprintEventType",
+                    "usr": "s:12AppSprintSDK0aB9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintEventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintEventType",
+                        "printedName": "AppSprintSDK.AppSprintEventType",
+                        "usr": "s:12AppSprintSDK0aB9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9EventTypeO14addPaymentInfoyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9EventTypeO14addPaymentInfoyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
+          {
+            "kind": "Var",
             "name": "addToCart",
             "printedName": "addToCart",
             "children": [
@@ -2325,6 +2362,43 @@
             "declKind": "EnumElement",
             "usr": "s:12AppSprintSDK0aB9EventTypeO16tutorialCompleteyA2CmF",
             "mangledName": "$s12AppSprintSDK0aB9EventTypeO16tutorialCompleteyA2CmF",
+            "moduleName": "AppSprintSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "achieveLevel",
+            "printedName": "achieveLevel",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppSprintSDK.AppSprintEventType.Type) -> AppSprintSDK.AppSprintEventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AppSprintEventType",
+                    "printedName": "AppSprintSDK.AppSprintEventType",
+                    "usr": "s:12AppSprintSDK0aB9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppSprintSDK.AppSprintEventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AppSprintEventType",
+                        "printedName": "AppSprintSDK.AppSprintEventType",
+                        "usr": "s:12AppSprintSDK0aB9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:12AppSprintSDK0aB9EventTypeO12achieveLevelyA2CmF",
+            "mangledName": "$s12AppSprintSDK0aB9EventTypeO12achieveLevelyA2CmF",
             "moduleName": "AppSprintSDK"
           },
           {
@@ -6858,84 +6932,98 @@
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 421,
+      "offset": 426,
+      "length": 18,
+      "value": "\"add_payment_info\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 466,
       "length": 13,
       "value": "\"add_to_cart\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 460,
+      "offset": 505,
       "length": 17,
       "value": "\"add_to_wishlist\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 506,
+      "offset": 551,
       "length": 19,
       "value": "\"initiate_checkout\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 549,
+      "offset": 594,
       "length": 14,
       "value": "\"view_content\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 584,
+      "offset": 629,
       "length": 11,
       "value": "\"view_item\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 655,
+      "offset": 700,
       "length": 19,
       "value": "\"tutorial_complete\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 697,
+      "offset": 744,
+      "length": 15,
+      "value": "\"achieve_level\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
+      "kind": "StringLiteral",
+      "offset": 782,
       "length": 13,
       "value": "\"level_start\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 736,
+      "offset": 821,
       "length": 16,
       "value": "\"level_complete\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 857,
+      "offset": 942,
       "length": 16,
       "value": "\"not_determined\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 2190,
+      "offset": 2275,
       "length": 8,
       "value": "\"source\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 2410,
+      "offset": 2495,
       "length": 12,
       "value": "\"confidence\""
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintTypes.swift",
       "kind": "StringLiteral",
-      "offset": 2457,
+      "offset": 2542,
       "length": 14,
       "value": "\"campaignName\""
     }

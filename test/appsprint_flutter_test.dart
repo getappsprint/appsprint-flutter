@@ -88,7 +88,7 @@ void main() {
       'name': 'checkout',
       'revenue': 4.99,
       'currency': 'USD',
-      'parameters': {'revenue': 4.99, 'currency': 'USD', 'source': 'test'},
+      'parameters': {'source': 'test'},
     });
   });
 
@@ -105,7 +105,30 @@ void main() {
       'name': 'checkout',
       'revenue': 5,
       'currency': 'EUR',
-      'parameters': {'price': 5, 'currency': 'EUR'},
+      'parameters': null,
+    });
+  });
+
+  test('event vocabulary includes Appstack parity events', () {
+    expect(appSprintEventTypeValues[AppSprintEventType.sessionStart], 'session_start');
+    expect(appSprintEventTypeValues[AppSprintEventType.addPaymentInfo], 'add_payment_info');
+    expect(appSprintEventTypeValues[AppSprintEventType.achieveLevel], 'achieve_level');
+  });
+
+  test('sendEvent preserves zero revenue and strips hoisted fields', () async {
+    await AppSprint.instance.sendEvent(
+      AppSprintEventType.startTrial,
+      name: 'trial_start',
+      params: {'revenue': 0, 'currency': 'USD', 'plan': 'free'},
+    );
+
+    expect(calls.single.method, 'sendEvent');
+    expect(calls.single.arguments, {
+      'eventType': 'start_trial',
+      'name': 'trial_start',
+      'revenue': 0,
+      'currency': 'USD',
+      'parameters': {'plan': 'free'},
     });
   });
 

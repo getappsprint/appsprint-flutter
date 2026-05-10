@@ -61,7 +61,7 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                         call.argument<Map<String, Any?>>("parameters")?.forEach { (k, v) -> params[k] = v }
                         val revenue = numberArgument(call, "revenue")
                         val currency = call.argument<String>("currency")
-                        if (revenue != null && revenue != 0.0) params["revenue"] = revenue
+                        if (revenue != null) params["revenue"] = revenue
                         if (currency != null) params["currency"] = currency
                         sdk().sendEvent(type, name, if (params.isNotEmpty()) params else null)
                         result.success(true)
@@ -182,8 +182,8 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
     private fun numberArgument(call: MethodCall, key: String): Double? {
         val value = call.argument<Any>(key) ?: return null
         return when (value) {
-            is Number -> value.toDouble()
-            is String -> value.trim().toDoubleOrNull()
+            is Number -> value.toDouble().takeIf { it.isFinite() }
+            is String -> value.trim().toDoubleOrNull()?.takeIf { it.isFinite() }
             else -> null
         }
     }
