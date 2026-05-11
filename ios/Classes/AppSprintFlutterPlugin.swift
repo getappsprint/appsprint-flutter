@@ -42,7 +42,8 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
           customerUserId: customerUserId
         )
 
-        if let urlString = args["apiUrl"] as? String, let url = URL(string: urlString) {
+        let apiUrl = (args["apiUrl"] as? String) ?? (args["endpointBaseUrl"] as? String)
+        if let urlString = apiUrl, let url = URL(string: urlString) {
           sdkConfig = AppSprintConfig(
             apiKey: apiKey,
             apiURL: url,

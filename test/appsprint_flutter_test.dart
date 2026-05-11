@@ -54,7 +54,26 @@ void main() {
       'apiUrl': 'https://api.appsprint.app',
       'enableAppleAdsAttribution': true,
       'isDebug': true,
-      'logLevel': 2,
+      'logLevel': 0,
+      'customerUserId': null,
+    });
+  });
+
+  test('configure accepts Appstack-style apiKey and options', () async {
+    final configured = await AppSprint.instance.configure(
+      'test-key',
+      endpointBaseUrl: 'https://edge.example.com',
+      isDebug: true,
+    );
+
+    expect(configured, true);
+    expect(calls.single.method, 'configure');
+    expect(calls.single.arguments, {
+      'apiKey': 'test-key',
+      'apiUrl': 'https://edge.example.com',
+      'enableAppleAdsAttribution': true,
+      'isDebug': true,
+      'logLevel': 0,
       'customerUserId': null,
     });
   });

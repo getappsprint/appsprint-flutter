@@ -37,6 +37,7 @@ await AppSprint.instance.configure(
 |---|---|---|---|
 | `apiKey` | `String` | Yes | — |
 | `apiUrl` | `String` | No | `https://api.appsprint.app` |
+| `endpointBaseUrl` | `String` | No | alias accepted by `configure(apiKey, endpointBaseUrl: ...)` |
 | `enableAppleAdsAttribution` | `bool` | No | `true` |
 | `isDebug` | `bool` | No | `false` |
 | `logLevel` | `int` | No | `2` |
@@ -46,11 +47,26 @@ Log levels:
 
 `0 = debug`, `1 = info`, `2 = warn`, `3 = error`
 
+You can also use the AppStack-style configure shorthand:
+
+```dart
+await AppSprint.instance.configure(
+  'YOUR_API_KEY',
+  endpointBaseUrl: 'https://api.appsprint.app',
+);
+```
+
+## iOS privacy
+
+The vendored iOS framework includes a `PrivacyInfo.xcprivacy` manifest for Apple privacy manifest validation. Add `NSUserTrackingUsageDescription` to the host app's `Info.plist` before calling the ATT helper. If you use SKAdNetwork postbacks, configure `NSAdvertisingAttributionReportEndpoint` in the host app according to your App Store attribution setup.
+
 ## Android permissions and privacy
 
-The Android package declares `android.permission.INTERNET` and `com.google.android.gms.permission.AD_ID`. The native Android SDK reads the Google Advertising ID during install registration, omits it when Limit Ad Tracking is enabled, and never sends the all-zero advertising ID.
+The Android package declares `android.permission.INTERNET`, `android.permission.ACCESS_NETWORK_STATE`, and `com.google.android.gms.permission.AD_ID`. The native Android SDK reads the Google Advertising ID during install registration, omits it when Limit Ad Tracking is enabled, and never sends the all-zero advertising ID.
 
 If you publish an Android app with this SDK, include advertising ID collection in your Play Console Data safety answers and privacy policy.
+
+If your app is not allowed to collect advertising IDs, remove `com.google.android.gms.permission.AD_ID` from the host app manifest with `tools:node="remove"`.
 
 ## Sending events
 

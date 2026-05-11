@@ -12,6 +12,27 @@
         "moduleName": "AppSprintSDK"
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppSprintSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppSprintSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppSprintSDK"
+      },
+      {
         "kind": "TypeDecl",
         "name": "AppSprint",
         "printedName": "AppSprint",
@@ -6769,6 +6790,34 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/.build\/xcframework\/dd-simulator\/Build\/Intermediates.noindex\/ArchiveIntermediates\/appsprint-ios\/IntermediateBuildFilesPath\/appsprint-ios.build\/Release-iphonesimulator\/AppSprintSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 295,
+      "length": 28,
+      "value": "\"appsprint-ios_AppSprintSDK\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/.build\/xcframework\/dd-simulator\/Build\/Intermediates.noindex\/ArchiveIntermediates\/appsprint-ios\/IntermediateBuildFilesPath\/appsprint-ios.build\/Release-iphonesimulator\/AppSprintSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "Array",
+      "offset": 970,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/.build\/xcframework\/dd-simulator\/Build\/Intermediates.noindex\/ArchiveIntermediates\/appsprint-ios\/IntermediateBuildFilesPath\/appsprint-ios.build\/Release-iphonesimulator\/AppSprintSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 1497,
+      "length": 9,
+      "value": "\".bundle\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/.build\/xcframework\/dd-simulator\/Build\/Intermediates.noindex\/ArchiveIntermediates\/appsprint-ios\/IntermediateBuildFilesPath\/appsprint-ios.build\/Release-iphonesimulator\/AppSprintSDK.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 1649,
+      "length": 56,
+      "value": "\"unable to find bundle named appsprint-ios_AppSprintSDK\""
+    },
+    {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "StringLiteral",
       "offset": 138,
@@ -6819,24 +6868,38 @@
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "kind": "StringLiteral",
+      "offset": 556,
+      "length": 20,
+      "value": "\"@appsprint:api_key\""
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "Dictionary",
-      "offset": 709,
+      "offset": 758,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "BooleanLiteral",
-      "offset": 743,
+      "offset": 792,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
       "kind": "BooleanLiteral",
-      "offset": 779,
+      "offset": 828,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprint.swift",
+      "kind": "Array",
+      "offset": 1089,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/arthur\/Dev\/app-sprint\/SDKs\/appsprint-ios\/Sources\/AppSprintSDK\/AppSprintConfig.swift",

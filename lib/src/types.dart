@@ -50,9 +50,10 @@ class AppSprintConfig {
     this.apiUrl = 'https://api.appsprint.app',
     this.enableAppleAdsAttribution = true,
     this.isDebug = false,
-    this.logLevel = 2,
+    int? logLevel,
     this.customerUserId,
-  }) : assert(logLevel >= 0 && logLevel <= 3, 'logLevel must be between 0 and 3.');
+  })  : logLevel = logLevel ?? (isDebug ? 0 : 2),
+        assert(logLevel == null || (logLevel >= 0 && logLevel <= 3), 'logLevel must be between 0 and 3.');
 
   final String apiKey;
   final String apiUrl;

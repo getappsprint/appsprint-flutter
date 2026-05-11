@@ -37,7 +37,9 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                     try {
                         val config = AppSprintConfig(
                             apiKey = apiKey,
-                            apiUrl = call.argument<String>("apiUrl") ?: "https://api.appsprint.app",
+                            apiUrl = call.argument<String>("apiUrl")
+                                ?: call.argument<String>("endpointBaseUrl")
+                                ?: "https://api.appsprint.app",
                             enableAppleAdsAttribution = call.argument<Boolean>("enableAppleAdsAttribution") ?: true,
                             isDebug = call.argument<Boolean>("isDebug") ?: false,
                             logLevel = call.argument<Int>("logLevel") ?: if (call.argument<Boolean>("isDebug") == true) 0 else 2,

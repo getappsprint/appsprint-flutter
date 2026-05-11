@@ -6,22 +6,50 @@ class AppSprint {
 
   static final AppSprint instance = AppSprint._();
 
-  Future<bool> configure(AppSprintConfig config) {
-    if (config.apiKey.trim().isEmpty) {
+  Future<bool> configure(
+    Object config, {
+    String? endpointBaseUrl,
+    String? apiUrl,
+    bool enableAppleAdsAttribution = true,
+    bool isDebug = false,
+    int? logLevel,
+    String? customerUserId,
+  }) {
+    final AppSprintConfig normalizedConfig;
+    if (config is AppSprintConfig) {
+      normalizedConfig = config;
+    } else if (config is String) {
+      normalizedConfig = AppSprintConfig(
+        apiKey: config,
+        apiUrl: apiUrl ?? endpointBaseUrl ?? 'https://api.appsprint.app',
+        enableAppleAdsAttribution: enableAppleAdsAttribution,
+        isDebug: isDebug,
+        logLevel: logLevel,
+        customerUserId: customerUserId,
+      );
+    } else {
       throw ArgumentError.value(
-        config.apiKey,
+        config,
+        'config',
+        'AppSprint.configure requires an AppSprintConfig or apiKey string.',
+      );
+    }
+
+    if (normalizedConfig.apiKey.trim().isEmpty) {
+      throw ArgumentError.value(
+        normalizedConfig.apiKey,
         'apiKey',
         'AppSprint.configure requires a non-empty apiKey.',
       );
     }
 
     return AppSprintNative.configure({
-      'apiKey': config.apiKey,
-      'apiUrl': config.apiUrl,
-      'enableAppleAdsAttribution': config.enableAppleAdsAttribution,
-      'isDebug': config.isDebug,
-      'logLevel': config.logLevel,
-      'customerUserId': config.customerUserId,
+      'apiKey': normalizedConfig.apiKey,
+      'apiUrl': normalizedConfig.apiUrl,
+      'enableAppleAdsAttribution': normalizedConfig.enableAppleAdsAttribution,
+      'isDebug': normalizedConfig.isDebug,
+      'logLevel': normalizedConfig.logLevel,
+      'customerUserId': normalizedConfig.customerUserId,
     });
   }
 

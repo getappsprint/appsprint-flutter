@@ -6,6 +6,9 @@ import AdServices
 import AdSupport
 import AppTrackingTransparency
 import Foundation
+import Foundation/*.Bundle*/
+import Foundation/*.ProcessInfo*/
+import Foundation/*.URL*/
 import Swift
 import UIKit
 import _Concurrency
