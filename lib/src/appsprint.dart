@@ -14,6 +14,8 @@ class AppSprint {
     bool isDebug = false,
     int? logLevel,
     String? customerUserId,
+    bool autoTrackSessions = true,
+    bool autoRefreshAttribution = true,
   }) {
     final AppSprintConfig normalizedConfig;
     if (config is AppSprintConfig) {
@@ -26,6 +28,8 @@ class AppSprint {
         isDebug: isDebug,
         logLevel: logLevel,
         customerUserId: customerUserId,
+        autoTrackSessions: autoTrackSessions,
+        autoRefreshAttribution: autoRefreshAttribution,
       );
     } else {
       throw ArgumentError.value(
@@ -50,6 +54,8 @@ class AppSprint {
       'isDebug': normalizedConfig.isDebug,
       'logLevel': normalizedConfig.logLevel,
       'customerUserId': normalizedConfig.customerUserId,
+      'autoTrackSessions': normalizedConfig.autoTrackSessions,
+      'autoRefreshAttribution': normalizedConfig.autoRefreshAttribution,
     });
   }
 
@@ -85,6 +91,12 @@ class AppSprint {
   Future<void> clearData() => AppSprintNative.clearData();
 
   Future<void> setCustomerUserId(String userId) => AppSprintNative.setCustomerUserId(userId);
+
+  Future<AttributionResult?> refreshAttribution() async {
+    final raw = await AppSprintNative.refreshAttribution();
+    if (raw == null) return null;
+    return AttributionResult.fromJson(raw);
+  }
 
   Future<bool> enableAppleAdsAttribution() => AppSprintNative.enableAppleAdsAttribution();
 

@@ -33,6 +33,10 @@ class AppSprintNative {
     return _channel.invokeMethod<void>('setCustomerUserId', {'userId': userId});
   }
 
+  static Future<Map<dynamic, dynamic>?> refreshAttribution() {
+    return _channel.invokeMethod<Map<dynamic, dynamic>>('refreshAttribution');
+  }
+
   static Future<bool> enableAppleAdsAttribution() async {
     return await _channel.invokeMethod<bool>('enableAppleAdsAttribution') ?? false;
   }

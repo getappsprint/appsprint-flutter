@@ -1,5 +1,5 @@
 group 'com.appsprint.flutter'
-version '0.1.0'
+version '1.0.0'
 
 buildscript {
     ext.kotlin_version = '2.0.21'
@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.appsprint.flutter'
-    compileSdkVersion 35
+    compileSdkVersion 36
     defaultConfig {
         minSdkVersion 24
     }
@@ -41,7 +41,7 @@ android {
 
 dependencies {
     implementation(name: 'appsprint-sdk', ext: 'aar')
-    implementation "androidx.lifecycle:lifecycle-process:2.8.7"
-    implementation "com.google.android.gms:play-services-ads-identifier:18.0.1"
+    implementation "androidx.lifecycle:lifecycle-process:2.10.0"
+    implementation "com.google.android.gms:play-services-ads-identifier:18.3.0"
     implementation "com.android.installreferrer:installreferrer:2.2"
 }

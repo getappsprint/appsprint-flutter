@@ -44,6 +44,8 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                             isDebug = call.argument<Boolean>("isDebug") ?: false,
                             logLevel = call.argument<Int>("logLevel") ?: if (call.argument<Boolean>("isDebug") == true) 0 else 2,
                             customerUserId = call.argument<String>("customerUserId"),
+                            autoTrackSessions = call.argument<Boolean>("autoTrackSessions") ?: true,
+                            autoRefreshAttribution = call.argument<Boolean>("autoRefreshAttribution") ?: true,
                         )
                         sdk().configure(config)
                         result.success(true)
@@ -114,6 +116,16 @@ class AppSprintFlutterPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
                         result.success(null)
                     } catch (e: Exception) {
                         result.error("SET_USER_ID_ERROR", e.message, null)
+                    }
+                }
+            }
+
+            "refreshAttribution" -> {
+                thread(start = true) {
+                    try {
+                        result.success(sdk().refreshAttribution()?.let { attributionToMap(it) })
+                    } catch (e: Exception) {
+                        result.error("REFRESH_ATTRIBUTION_ERROR", e.message, null)
                     }
                 }
             }

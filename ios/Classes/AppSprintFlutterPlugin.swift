@@ -26,6 +26,8 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
         let isDebug = args["isDebug"] as? Bool ?? false
         let logLevelRaw = args["logLevel"] as? Int
         let customerUserId = args["customerUserId"] as? String
+        let autoTrackSessions = args["autoTrackSessions"] as? Bool ?? true
+        let autoRefreshAttribution = args["autoRefreshAttribution"] as? Bool ?? true
 
         let logLevel: AppSprintLogLevel
         if let raw = logLevelRaw, let level = AppSprintLogLevel(rawValue: raw) {
@@ -39,7 +41,9 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
           enableAppleAdsAttribution: enableAppleAds,
           isDebug: isDebug,
           logLevel: logLevel,
-          customerUserId: customerUserId
+          customerUserId: customerUserId,
+          autoTrackSessions: autoTrackSessions,
+          autoRefreshAttribution: autoRefreshAttribution
         )
 
         let apiUrl = (args["apiUrl"] as? String) ?? (args["endpointBaseUrl"] as? String)
@@ -50,7 +54,9 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
             enableAppleAdsAttribution: enableAppleAds,
             isDebug: isDebug,
             logLevel: logLevel,
-            customerUserId: customerUserId
+            customerUserId: customerUserId,
+            autoTrackSessions: autoTrackSessions,
+            autoRefreshAttribution: autoRefreshAttribution
           )
         }
 
@@ -109,6 +115,15 @@ public class AppSprintFlutterPlugin: NSObject, FlutterPlugin {
       Task { @MainActor in
         await AppSprint.shared.setCustomerUserId(userId)
         result(nil)
+      }
+
+    case "refreshAttribution":
+      Task { @MainActor in
+        guard let attr = await AppSprint.shared.refreshAttribution() else {
+          result(nil)
+          return
+        }
+        result(Self.attributionToDictionary(attr))
       }
 
     case "enableAppleAdsAttribution":

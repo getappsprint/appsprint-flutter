@@ -1,53 +1,51 @@
-# appsprint-flutter
+# AppSprint for Flutter
 
-AppSprint mobile attribution SDK for Flutter. It tracks installs, attribution, lifecycle events, custom events, and revenue events, with local event queueing for transient failures.
+Mobile attribution and event tracking for Flutter apps, backed by the native iOS and Android AppSprint SDKs. The Dart layer is a thin pass-through to the same engines as our standalone iOS and Android SDKs, so behavior matches across platforms.
 
-## Installation
+## Requirements
 
-Add the package to your `pubspec.yaml`:
+- Flutter 3.0 or later
+- Dart 3.0 or later
+- iOS 14.0 or later
+- Android 5.0 (API 21) or later
+
+## Install
+
+Add the package to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  appsprint_flutter: ^0.1.0
+  appsprint_flutter: ^1.0.0
 ```
 
-Then run:
+Fetch dependencies:
 
 ```bash
 flutter pub get
 ```
 
-## Quick start
+The Flutter plugin manages the iOS pod and the Android AAR for you. No extra repository setup needed.
 
-Initialize the SDK as early as possible in app startup:
+## Configure
+
+Call `configure` once in `main()`, before `runApp`. It returns a future that resolves after local state is restored; install registration runs in the background:
 
 ```dart
+import 'package:flutter/material.dart';
 import 'package:appsprint_flutter/appsprint_flutter.dart';
 
-await AppSprint.instance.configure(
-  const AppSprintConfig(
-    apiKey: 'YOUR_API_KEY',
-  ),
-);
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await AppSprint.instance.configure(
+    const AppSprintConfig(apiKey: 'YOUR_API_KEY'),
+  );
+
+  runApp(const MyApp());
+}
 ```
 
-### Configuration
-
-| Option | Type | Required | Default |
-|---|---|---|---|
-| `apiKey` | `String` | Yes | — |
-| `apiUrl` | `String` | No | `https://api.appsprint.app` |
-| `endpointBaseUrl` | `String` | No | alias accepted by `configure(apiKey, endpointBaseUrl: ...)` |
-| `enableAppleAdsAttribution` | `bool` | No | `true` |
-| `isDebug` | `bool` | No | `false` |
-| `logLevel` | `int` | No | `2` |
-| `customerUserId` | `String?` | No | `null` |
-
-Log levels:
-
-`0 = debug`, `1 = info`, `2 = warn`, `3 = error`
-
-You can also use the AppStack-style configure shorthand:
+If you prefer the named-argument form for parity with web SDKs:
 
 ```dart
 await AppSprint.instance.configure(
@@ -56,25 +54,28 @@ await AppSprint.instance.configure(
 );
 ```
 
-## iOS privacy
+### Configuration options
 
-The vendored iOS framework includes a `PrivacyInfo.xcprivacy` manifest for Apple privacy manifest validation. Add `NSUserTrackingUsageDescription` to the host app's `Info.plist` before calling the ATT helper. If you use SKAdNetwork postbacks, configure `NSAdvertisingAttributionReportEndpoint` in the host app according to your App Store attribution setup.
+| Option | Type | Default | What it does |
+|---|---|---|---|
+| `apiKey` | `String` | required | Your AppSprint app key. |
+| `apiUrl` | `String` | `https://api.appsprint.app` | Override for staging or self-hosted environments. |
+| `endpointBaseUrl` | `String` | alias for `apiUrl` | Accepted for compatibility. |
+| `enableAppleAdsAttribution` | `bool` | `true` | iOS only. Fetches Apple AdServices at install time. |
+| `customerUserId` | `String?` | `null` | Your internal user ID. Persists across launches and replays if the first send fails. |
+| `autoTrackSessions` | `bool` | `true` | Fires `session_start` on `configure()` and on foreground, debounced to one event per 30 minutes. |
+| `autoRefreshAttribution` | `bool` | `true` | Refetches `/v1/sdk/attribution` on `configure()` and foreground transitions. |
+| `isDebug` | `bool` | `false` | Forces debug-level logging on the native side. |
+| `logLevel` | `int` | `2` | `0 = debug`, `1 = info`, `2 = warn`, `3 = error`. |
 
-## Android permissions and privacy
-
-The Android package declares `android.permission.INTERNET`, `android.permission.ACCESS_NETWORK_STATE`, and `com.google.android.gms.permission.AD_ID`. The native Android SDK reads the Google Advertising ID during install registration, omits it when Limit Ad Tracking is enabled, and never sends the all-zero advertising ID.
-
-If you publish an Android app with this SDK, include advertising ID collection in your Play Console Data safety answers and privacy policy.
-
-If your app is not allowed to collect advertising IDs, remove `com.google.android.gms.permission.AD_ID` from the host app manifest with `tools:node="remove"`.
-
-## Sending events
+## Track events
 
 ```dart
 import 'package:appsprint_flutter/appsprint_flutter.dart';
 
 await AppSprint.instance.sendEvent(AppSprintEventType.login);
 await AppSprint.instance.sendEvent(AppSprintEventType.signUp);
+
 await AppSprint.instance.sendEvent(
   AppSprintEventType.purchase,
   params: {
@@ -93,17 +94,133 @@ await AppSprint.instance.sendEvent(
 );
 ```
 
-Supported `eventType` values:
+`sendEvent` resolves once the native side has queued the event locally. The actual HTTP send happens on the next flush trigger.
 
-`login` | `sign_up` | `register` | `purchase` | `subscribe` | `start_trial` | `add_payment_info` | `add_to_cart` | `add_to_wishlist` | `initiate_checkout` | `view_content` | `view_item` | `search` | `share` | `tutorial_complete` | `achieve_level` | `level_start` | `level_complete` | `custom`
+### Built-in event types
 
-Notes:
+`session_start`, `login`, `sign_up`, `register`, `purchase`, `subscribe`, `start_trial`, `add_payment_info`, `add_to_cart`, `add_to_wishlist`, `initiate_checkout`, `view_content`, `view_item`, `search`, `share`, `tutorial_complete`, `achieve_level`, `level_start`, `level_complete`, `custom`.
 
-- Use `eventType: AppSprintEventType.custom` together with the optional `name` argument for custom event names.
-- Revenue fields are accepted through `params['revenue']` or `params['price']`, plus `params['currency']`.
-- If an event cannot be delivered, it is queued locally and retried on the next initialization or explicit flush.
+### Revenue events
 
-## Public API
+Pass `revenue` (or `price` as an alias) plus `currency`. Currency must be a 3-letter ISO code; anything else is dropped on the native side before the request goes out.
+
+```dart
+await AppSprint.instance.sendEvent(
+  AppSprintEventType.subscribe,
+  params: {
+    'revenue': 4.99,
+    'currency': 'EUR',
+    'plan': 'monthly',
+  },
+);
+```
+
+### Custom events
+
+```dart
+await AppSprint.instance.sendEvent(
+  AppSprintEventType.custom,
+  name: 'level_skip',
+  params: {'level': 12},
+);
+```
+
+Use `name` to label custom events. Keep the name stable so your dashboard groups them correctly.
+
+## Read attribution
+
+Once an install registers, attribution is cached on the native side. You can read it any time:
+
+```dart
+final attribution = await AppSprint.instance.getAttribution();
+final appsprintId = await AppSprint.instance.getAppSprintId();
+final params = await AppSprint.instance.getAttributionParams();
+```
+
+`AttributionResult.source` is one of `apple_ads`, `tracking_link`, or `organic`.
+
+### Forward to RevenueCat or Superwall
+
+`getAttributionParams()` returns a flat `Map<String, String>` shaped for partner SDKs:
+
+```dart
+final params = await AppSprint.instance.getAttributionParams();
+await Purchases.setAttributes(params);
+```
+
+### Manual refresh
+
+If you need the latest server-side resolution, call `refreshAttribution()`:
+
+```dart
+final updated = await AppSprint.instance.refreshAttribution();
+debugPrint('source = ${updated?.source}');
+```
+
+## App Tracking Transparency (iOS only)
+
+```dart
+final authorized = await AppSprintNative.requestTrackingAuthorization();
+```
+
+The helper waits for the app to reach foreground-active before showing the system prompt, so calling it from `main()` or `initState()` is safe.
+
+Add `NSUserTrackingUsageDescription` to `ios/Runner/Info.plist`:
+
+```xml
+<key>NSUserTrackingUsageDescription</key>
+<string>This identifier helps us deliver personalized ads.</string>
+```
+
+If you use SKAdNetwork postbacks, also add `NSAdvertisingAttributionReportEndpoint`.
+
+`AppSprintNative.requestTrackingAuthorization()` resolves `true` on Android without prompting; ATT is iOS-only.
+
+## Google Advertising ID (Android only)
+
+The native Android SDK reads GAID during install registration, off the main thread, honoring Limit Ad Tracking and dropping the all-zero ID. The plugin declares `INTERNET`, `ACCESS_NETWORK_STATE`, and `com.google.android.gms.permission.AD_ID`. If your app cannot collect advertising IDs (children's apps, regional policies), remove the permission in `android/app/src/main/AndroidManifest.xml`:
+
+```xml
+<manifest xmlns:tools="http://schemas.android.com/tools" ...>
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
+</manifest>
+```
+
+## What happens behind the scenes
+
+- `configure()` resolves after local-state restore. Install registration runs in the background with exponential backoff (1s through 32s, jittered, up to 6 attempts).
+- Events queue locally up to 100 entries on native storage (UserDefaults on iOS, SharedPreferences on Android).
+- iOS uses `URLSession` with `waitsForConnectivity = true`. Transient offline windows queue inside the OS rather than failing fast.
+- A rejected API key (`401` or `403`) disables the SDK. Future events drop until `clearData()` is called.
+- `customerUserId` and late updates (iOS AdServices token) retry automatically on the next `configure()` or foreground. A `404 install_not_found` from any late update self-heals by clearing local install state and triggering a fresh install.
+
+## Privacy
+
+The vendored iOS framework ships a `PrivacyInfo.xcprivacy` manifest declaring `UserDefaults` access plus `DeviceID`, `ProductInteraction`, `UserID`, `CoarseLocation`, and `OtherDataTypes` collection, all marked `Tracking: true`, with `api.appsprint.app` listed as a tracking domain.
+
+For Android, include advertising ID collection, device IDs, app activity, and (if you set `customerUserId`) user ID in your Play Console Data safety answers.
+
+Don't pass raw PII through `params` or `customerUserId`. Both persist to native storage for retry durability. Use hashed or opaque identifiers instead (SHA-256 of an email, RevenueCat or Superwall `app_user_id`, your internal user UUID).
+
+## Local development
+
+```dart
+await AppSprint.instance.configure(
+  const AppSprintConfig(
+    apiKey: 'YOUR_DEV_KEY',
+    apiUrl: 'http://localhost:3000',
+    isDebug: true,
+  ),
+);
+```
+
+On Android emulator, use `http://10.0.2.2:3000` to reach the host machine's localhost.
+
+`isDebug: true` raises native log level to `debug`. iOS logs flow into Console.app; Android logs flow into `logcat` under the `AppSprint` tag.
+
+## Public API reference
 
 ### `AppSprint`
 
@@ -111,21 +228,20 @@ Notes:
 import 'package:appsprint_flutter/appsprint_flutter.dart';
 ```
 
-Available methods:
-
-- `AppSprint.instance.configure(config)` initializes the SDK and performs install tracking when needed.
-- `sendEvent(eventType, {name, params})` sends or queues an event.
-- `sendTestEvent()` sends a diagnostic event and returns `{ success, message }`.
-- `flush()` retries queued events immediately.
-- `clearData()` clears cached SDK state and the local event queue.
-- `isSdkDisabled()` returns whether the SDK has been disabled because the API key was rejected.
-- `setCustomerUserId(userId)` updates the customer user id locally and remotely when possible.
-- `getAppSprintId()` returns the cached AppSprint install identifier, if available.
-- `getAttribution()` returns the last cached attribution result, if available.
-- `getAttributionParams()` returns the partner-ready attribution payload.
-- `enableAppleAdsAttribution()` re-enables Apple Ads attribution on iOS and returns `false` on Android.
-- `isInitialized()` reports whether `configure()` completed.
-- `destroy()` removes SDK listeners.
+- `AppSprint.instance.configure(config)` initializes the SDK.
+- `sendEvent(eventType, {name, params})` enqueues an event.
+- `flush()` drains the queue immediately.
+- `refreshAttribution()` fetches the latest attribution from the backend.
+- `setCustomerUserId(userId)` updates the customer user ID.
+- `getAttribution()` returns the cached attribution.
+- `getAttributionParams()` returns the partner-ready payload.
+- `getAppSprintId()` returns the SDK install identifier.
+- `enableAppleAdsAttribution()` re-enables Apple Ads at runtime on iOS; returns `false` on Android.
+- `sendTestEvent()` posts a diagnostic event and resolves to `{ success, message }`.
+- `isInitialized()` reports whether `configure()` resolved.
+- `isSdkDisabled()` reports whether a rejected API key disabled the SDK.
+- `clearData()` wipes local state.
+- `destroy()` removes native lifecycle observers.
 
 ### `AppSprintNative`
 
@@ -133,51 +249,13 @@ Available methods:
 import 'package:appsprint_flutter/appsprint_flutter.dart';
 ```
 
-Available methods:
+- `getDeviceInfo()` returns the device fingerprint payload.
+- `getAdServicesToken()` returns Apple's AdServices token on iOS; `null` on Android.
+- `requestTrackingAuthorization()` shows the ATT prompt on iOS; resolves `true` on Android.
 
-- `getDeviceInfo()`
-- `getAdServicesToken()`
-- `requestTrackingAuthorization()`
+## Support
 
-Example ATT request on iOS:
-
-```dart
-final authorized = await AppSprintNative.requestTrackingAuthorization();
-```
-
-## Attribution
-
-The SDK tracks install attribution once an install is registered. You can read the cached values at any time:
-
-```dart
-final attribution = await AppSprint.instance.getAttribution();
-final appsprintId = await AppSprint.instance.getAppSprintId();
-```
-
-`AttributionResult.source` can be:
-
-`apple_ads` | `fingerprint` | `organic`
-
-## Offline and retry behavior
-
-- The SDK keeps up to `100` queued events in local storage.
-- Queued events are flushed after `configure()` and when the app moves to the background.
-- Failed flushes keep the unsent events queued for a later retry.
-- A rejected API key (`401` or `403`) disables the SDK and drops future events until cached data is cleared.
-
-## Local development
-
-Point the SDK at a non-production backend during development:
-
-```dart
-await AppSprint.instance.configure(
-  const AppSprintConfig(
-    apiKey: 'YOUR_API_KEY',
-    apiUrl: 'http://localhost:3000',
-    isDebug: true,
-  ),
-);
-```
+Issues and feature requests on the [GitHub repo](https://github.com/appsprint/appsprint-flutter). Direct support at support@appsprint.app.
 
 ## License
 

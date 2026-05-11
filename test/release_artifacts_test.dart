@@ -25,7 +25,8 @@ void main() {
   test('android wrapper declares local AAR runtime dependencies', () {
     final gradle = File('android/build.gradle').readAsStringSync();
 
-    expect(gradle, contains('play-services-ads-identifier:18.0.1'));
+    expect(gradle, contains('lifecycle-process:2.10.0'));
+    expect(gradle, contains('play-services-ads-identifier:18.3.0'));
     expect(gradle, contains('installreferrer:installreferrer:2.2'));
   });
 }

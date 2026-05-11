@@ -56,6 +56,8 @@ void main() {
       'isDebug': true,
       'logLevel': 0,
       'customerUserId': null,
+      'autoTrackSessions': true,
+      'autoRefreshAttribution': true,
     });
   });
 
@@ -64,6 +66,8 @@ void main() {
       'test-key',
       endpointBaseUrl: 'https://edge.example.com',
       isDebug: true,
+      autoTrackSessions: false,
+      autoRefreshAttribution: false,
     );
 
     expect(configured, true);
@@ -75,6 +79,8 @@ void main() {
       'isDebug': true,
       'logLevel': 0,
       'customerUserId': null,
+      'autoTrackSessions': false,
+      'autoRefreshAttribution': false,
     });
   });
 
@@ -180,15 +186,32 @@ void main() {
     expect(deviceInfo.gaid, '38400000-8cf0-11bd-b23e-10b96e40000d');
   });
 
+  test('refreshAttribution returns updated native attribution', () async {
+    responseMap['refreshAttribution'] = {
+      'isAttributed': true,
+      'source': 'apple_ads',
+      'matchType': 'apple_ads',
+      'appleAds': {'campaignId': '123'},
+    };
+
+    final attribution = await AppSprint.instance.refreshAttribution();
+
+    expect(calls.single.method, 'refreshAttribution');
+    expect(attribution?.source, 'apple_ads');
+    expect(attribution?.appleAds?['campaignId'], '123');
+  });
+
   test('native utility API surface matches documented wrapper methods', () async {
     await AppSprintNative.getAdServicesToken();
     await AppSprintNative.requestTrackingAuthorization();
+    await AppSprint.instance.refreshAttribution();
     await AppSprint.instance.enableAppleAdsAttribution();
     await AppSprint.instance.destroy();
 
     expect(calls.map((call) => call.method), containsAll(<String>[
       'getAdServicesToken',
       'requestTrackingAuthorization',
+      'refreshAttribution',
       'enableAppleAdsAttribution',
       'destroy',
     ]));

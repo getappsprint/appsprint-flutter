@@ -52,6 +52,8 @@ class AppSprintConfig {
     this.isDebug = false,
     int? logLevel,
     this.customerUserId,
+    this.autoTrackSessions = true,
+    this.autoRefreshAttribution = true,
   })  : logLevel = logLevel ?? (isDebug ? 0 : 2),
         assert(logLevel == null || (logLevel >= 0 && logLevel <= 3), 'logLevel must be between 0 and 3.');
 
@@ -61,6 +63,8 @@ class AppSprintConfig {
   final bool isDebug;
   final int logLevel;
   final String? customerUserId;
+  final bool autoTrackSessions;
+  final bool autoRefreshAttribution;
 }
 
 class AttributionResult {
